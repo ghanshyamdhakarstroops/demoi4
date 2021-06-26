@@ -31,11 +31,16 @@ def signup(request):
 				messages.info(request, 'Password mismatch')
 				return redirect('home:signup')
 			else:
+				phone_count = len(phone)
+				print(phone_count,'444444444')
 				if User.objects.filter(email = email).exists():
 					messages.info(request, 'Email already exists....!')
 					return redirect('home:signup')
 				elif User.objects.filter(phone = phone).exists():
 					messages.info(request, 'Phone already exists....!')
+					return redirect('home:signup')
+				elif phone_count != 10:
+					messages.info(request, 'Enter 10 digit Mobile Number....!')
 					return redirect('home:signup')
 				else:
 					User.objects.create_user(username = username, email = email, phone = phone, password = password)
