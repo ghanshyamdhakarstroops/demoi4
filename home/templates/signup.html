@@ -10,7 +10,7 @@
                 {% csrf_token %}
                 {% if messages %}
                     {% for message in messages %}
-                        <h5 style="text-align: left;color: red;">{{message}}</h5>
+                        <h5 style="text-align: left;color: red;margin-top: 30px;">{{message}}</h5>
                     {% endfor %}
                 {% endif %}
                 <div class="form-content">
