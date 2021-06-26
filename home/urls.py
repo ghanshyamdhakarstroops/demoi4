@@ -9,10 +9,7 @@ urlpatterns = [
     path('', home, name = 'home'),
     path('signup/', signup, name = 'signup'),
     # path('login/', user_login, name = 'login'),
+    path('dashboard/', profile, name = 'profile'),
     path('login/', authview.LoginView.as_view(template_name='login.html'), name='login'),
 	path('logout/', authview.LogoutView.as_view(), name='logout'),
-    path('dashboard/', profile, name = 'profile'),
-
-
-
 ]
