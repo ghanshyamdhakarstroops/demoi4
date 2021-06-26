@@ -1,0 +1,17 @@
+{% extends 'index.html' %}{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <main role="main" class="container">
+        <h1 class="mt-5">Welcome {{request.user.username}}</h1>
+        {% comment %} <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p> {% endcomment %}
+        </main>
+    {% else %}
+        <main role="main" class="container">
+        <h1 class="mt-5">Welcome to Home</h1>
+        {% comment %} <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p> {% endcomment %}
+        <p>Use <a href="{% url 'home:login' %}">Login</a></p>
+        <p>Use <a href="{% url 'home:signup' %}">Signup</a></p>
+        </main>
+    {% endif %}
+{% endblock %}
